@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Gra terenowa 🌟</title>
+  <style>
+    body { 
+      font-family: Arial; 
+      text-align: center; 
+      margin: 03%; 
+      padding: 03%; 
+      transition: background-color 0.5s;
+    }
+    #game { 
+      max-width: 400px; 
+      margin: 50% auto; 
+      padding: 10%; 
+      background: rgba(255,255,255,0.9); 
+      border-radius: 15px; 
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    input { 
+      padding: 10px; 
+      width: 80%; 
+      margin: 10px 0; 
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button { 
+      padding: 10px 20px; 
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      transition: background-color 0.3s;
+    }
+    button:hover { background-color: #45a049; }
+    #komunikat { font-size: 18px; margin-top: 10px; }
+    .etap-0 { background-color: #FFEBEE; }
+    .etap-1 { background-color: #E8F5E9; }
+    .etap-2 { background-color: #E3F2FD; }
+    .etap-3 { background-color: #FFF3E0; }
+    .etap-4 { background-color: #F3E5F5; }
+    .etap-5 { background-color: #FFFDE7; }
+    #grafika { font-size: 50px; margin: 20px 0; }
+  </style>
+</head>
+<body class="etap-0">
+  <div id="game">
+    <h1>"nazwa gry"</h1>
+    <div id="grafika"></div>
+    <p id="pytanie">pierwsze pytanie,1?</p>
+    <input id="odp" placeholder="Twoja odpowiedź">
+    <br>
+    <button onclick="sprawdz()">Sprawdź</button>
+    <p id="komunikat"></p>
+  </div>
+
+  <script>
+    const etapy = [
+      { pytanie: "1", odpowiedz: "1", grafika: "1" },
+      { pytanie: "2", odpowiedz: "2", grafika: "2" },
+      { pytanie: "3", odpowiedz: "3", grafika: "3" },
+      { pytanie: "4", odpowiedz: "4", grafika: "4" },
+      { pytanie: "5", odpowiedz: "5", grafika: "5" },
+      { pytanie: "6", odpowiedz: "6", grafika: "6" }
+    ];
+
+    let index = 0;
+
+    function sprawdz() {
+      let input = document.getElementById("odp").value.toLowerCase().trim();
+      if (input === etapy[index].odpowiedz.toLowerCase()) {
+        document.getElementById("komunikat").innerText = "✅ Dobrze!";
+        index++;
+        if (index < etapy.length) {
+          document.getElementById("pytanie").innerText = etapy[index].pytanie;
+          document.getElementById("grafika").innerText = etapy[index].grafika;
+          document.getElementById("odp").value = "";
+          document.body.className = `etap-${index}`;
+        } else {
+          document.getElementById("pytanie").innerText = "🎉 Gratulacje, ukończyłeś grę!";
+          document.getElementById("grafika").innerText = "🏆";
+          document.getElementById("odp").style.display = "none";
+        }
+      } else {
+        document.getElementById("komunikat").innerText = "❌ Zła odpowiedź, spróbuj jeszcze raz!";
+      }
+    }
+  </script>
+</body>
+</html>
+
