@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Gra terenowa</title>
+  <style>
+    body { font-family: Arial; text-align: center; margin-top: 50px; }
+    #game { max-width: 400px; margin: auto; }
+    input { padding: 8px; width: 80%; margin: 10px 0; }
+    button { padding: 10px 20px; }
+  </style>
+</head>
+<body>
+  <div id="game">
+    <h1>Gra terenowa 🔦🔥</h1>
+    <p id="pytanie">Jakie zwierzę jest w godle Polski?</p>
+    <input id="odp" placeholder="Twoja odpowiedź">
+    <button onclick="sprawdz()">Sprawdź</button>
+    <p id="komunikat"></p>
+  </div>
+
+  <script>
+    const etapy = [
+      ["Jakie zwierzę jest w godle Polski?", "orzeł"],
+      ["Ile boków ma kwadrat?", "4"],
+      ["Hasło znalezione pod ławką?", "tajnehaslo"]
+    ];
+    let index = 0;
+
+    function sprawdz() {
+      let input = document.getElementById("odp").value.toLowerCase().trim();
+      if (input === etapy[index][1].toLowerCase()) {
+        document.getElementById("komunikat").innerText = "✅ Dobrze!";
+        index++;
+        if (index < etapy.length) {
+          document.getElementById("pytanie").innerText = etapy[index][0];
+          document.getElementById("odp").value = "";
+        } else {
+          document.getElementById("pytanie").innerText = "🎉 Gratulacje, ukończyłeś grę!";
+          document.getElementById("odp").style.display = "none";
+        }
+      } else {
+        document.getElementById("komunikat").innerText = "❌ Zła odpowiedź, spróbuj jeszcze raz!";
+      }
+    }
+  </script>
+</body>
+</html>
