@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
   <title>Gra terenowa 🌟</title>
   <style>
     body { 
       font-family: Arial; 
       text-align: center; 
-      margin: 0; 
-      padding: 0; 
+      margin: 03%; 
+      padding: 03%; 
       transition: background-color 0.5s;
     }
     #game { 
-      max-width: 500px; 
-      margin: 50px auto; 
-      padding: 20px; 
+      max-width: 400px; 
+      margin: 50% auto; 
+      padding: 10%; 
       background: rgba(255,255,255,0.9); 
       border-radius: 15px; 
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
@@ -50,9 +51,9 @@
 </head>
 <body class="etap-0">
   <div id="game">
-    <h1>Gra terenowa 🔦🔥</h1>
-    <div id="grafika">🦅</div>
-    <p id="pytanie">Jakie zwierzę jest w godle Polski?</p>
+    <h1>Terenowa gra jesieniarowa 🔦🍂</h1>
+    <div id="grafika">🌰</div>
+    <p id="pytanie">Pierwsze pytanie, Czy kasztan to owoc?</p>
     <input id="odp" placeholder="Twoja odpowiedź">
     <br>
     <button onclick="sprawdz()">Sprawdź</button>
@@ -61,7 +62,7 @@
 
   <script>
     const etapy = [
-      { pytanie: "Jakie zwierzę jest w godle Polski?", odpowiedz: "orzeł", grafika: "🦅" },
+      { pytanie: "Jakie zwierzę jest w godle Polski?", odpowiedz: "nie", grafika: "🦅" },
       { pytanie: "Ile boków ma kwadrat?", odpowiedz: "4", grafika: "🔷" },
       { pytanie: "Jak nazywa się nasza planeta?", odpowiedz: "ziemia", grafika: "🌍" },
       { pytanie: "Podaj wynik 5 + 7", odpowiedz: "12", grafika: "➕" },
@@ -93,5 +94,4 @@
   </script>
 </body>
 </html>
-
 
