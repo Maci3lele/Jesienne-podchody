@@ -3,7 +3,9 @@
 <head>
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
-  <title>Gra terenowa 🌟</title>
+
+  <title>🌟 Gra terenowa 🌟</title>
+
   <style>
     body { 
       font-family: Arial; 
@@ -20,13 +22,14 @@
       border-radius: 15px; 
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
+  
     input { 
       padding: 10px; 
       width: 80%; 
       margin: 10px 0; 
       font-size: 16px;
       border-radius: 5px;
-      border: 1px solid #ccc;
+      border: 2px solid #36291e;
     }
     button { 
       padding: 10px 20px; 
@@ -46,24 +49,39 @@
     .etap-3 { background-color: #FFF3E0; }
     .etap-4 { background-color: #F3E5F5; }
     .etap-5 { background-color: #FFFDE7; }
-    #grafika { font-size: 50px; margin: 20px 0; }
+    #grafika { font-size: 30px; margin: 20px 0; }
   </style>
+
 </head>
+
+
+
 <body class="etap-0">
   <div id="game">
-    <h1>"nazwa gry"</h1>
+    <h1>DYNIOBRANIE 🎃</h1>
     <div id="grafika"></div>
-    <p id="pytanie">pierwsze pytanie,1?</p>
+   
+    <br>
+    <p id="pytanie" style="font-size:20px;">
+      Ten kto pierwszy dotrze do mety, swe stopy odzieje w jesienne skarpety.
+      <br>
+      <br> <b>PYTANIE 1:
+        
+          <br> KRZYŻÓWKA</b> 
+    </p>
     <input id="odp" placeholder="Twoja odpowiedź">
     <br>
+     <p id="komunikat"></p>
     <button onclick="sprawdz()">Sprawdź</button>
-    <p id="komunikat"></p>
+    
   </div>
+
+
 
   <script>
     const etapy = [
-      { pytanie: "1", odpowiedz: "1", grafika: "1" },
-      { pytanie: "2", odpowiedz: "2", grafika: "2" },
+      { pytanie: "", odpowiedz: "jesieniara", grafika: "" },
+      { pytanie: "PYTANIE 2", odpowiedz: "odpowiedź 2", grafika: '<a href="https://www.google.com/maps/dir//Obrońców+Westerplatte,+41-710+Ruda+Śląska/@50.2741746,18.7913854,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x4716cd9e97549fed:0x827921cd78957940!2m2!1d18.8737857!2d50.2742037?entry=ttu&g_ep=EgoyMDI1MDkyNC4wIKXMDSoASAFQAw%3D%3D">Super ci idzie, dawaj tutaj!</a>' },
       { pytanie: "3", odpowiedz: "3", grafika: "3" },
       { pytanie: "4", odpowiedz: "4", grafika: "4" },
       { pytanie: "5", odpowiedz: "5", grafika: "5" },
@@ -71,7 +89,6 @@
     ];
 
     let index = 0;
-
     function sprawdz() {
       let input = document.getElementById("odp").value.toLowerCase().trim();
       if (input === etapy[index].odpowiedz.toLowerCase()) {
@@ -79,7 +96,7 @@
         index++;
         if (index < etapy.length) {
           document.getElementById("pytanie").innerText = etapy[index].pytanie;
-          document.getElementById("grafika").innerText = etapy[index].grafika;
+          document.getElementById("grafika").innerHTML = etapy[index].grafika;
           document.getElementById("odp").value = "";
           document.body.className = `etap-${index}`;
         } else {
@@ -92,6 +109,9 @@
       }
     }
   </script>
+
+
 </body>
 </html>
 
+<p style="font-size:20px;">To jest tekst o wielkości 20px</p>
