@@ -54,6 +54,7 @@
     .etap-3 { background-color: #FFF3E0; }
     .etap-4 { background-color: #F3E5F5; }
     .etap-5 { background-color: #FFFDE7; }
+    .etap-6 { background-color: rgba(186, 196, 211, 1)}
     #grafika { font-size: 30px; margin: 20px 0; }
 
     .multi-container {
@@ -90,11 +91,11 @@
     <div id="grafika"></div>
    
     <p id="pytanie" style="font-size:18px;">
-      Ten kto pierwszy dotrze do mety, swe stopy odzieje w jesienne skarpety.🧦
+      Ten kto pierwszy dotrze do mety, dostanie kosz cały wypchany <br>w maszkety.🍪🍬🍫
       <br>
       <br> <b>PYTANIE 1:
         
-          <br>ROZWIĄZANIE KRZYŻÓWKI</b> 
+          <br>PODAJ ROZWIĄZANIE KRZYŻÓWKI</b> 
     </p>
     <input id="odp" placeholder="Twoja odpowiedź">
     <br>
@@ -108,13 +109,14 @@
    <script>
       const etapy = [
          { pytanie: "", odpowiedz: "jesieniara", grafika: "", typ: "input" },
-         { pytanie: "<b>Podaj odpowiedź<b/>", odpowiedz: "polska złota jesień", grafika: '<a href="https://www.google.com/maps/dir//Obrońców+Westerplatte,+41-710+Ruda+Śląska/@50.2741746,18.7913854,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x4716cd9e97549fed:0x827921cd78957940!2m2!1d18.8737857!2d50.2742037?entry=ttu&g_ep=EgoyMDI1MDkyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank">Udaj się do miejsca pod linkiem, gdy będziesz na miejscu wróć do pytania!</a>', typ: "input" },
-         { pytanie: "Wprowadź wynik działania by przejść dalej", odpowiedz: "6", grafika: "Matematyka", typ: "input" },
-         { pytanie: "Podaj brakujący fragment cytatu", odpowiedz: "wrzesień", grafika: "<b>„Jaki pierwszy ******** taka będzie jesień”<b/>", typ: "input" },
+         { pytanie: "<b>PODAJ ODPOWIEDŹ DO PYTANIA NR 2<b/>", odpowiedz: "polska złota jesień", grafika: '<a href="https://www.google.com/maps/dir//Obrońców+Westerplatte,+41-710+Ruda+Śląska/@50.2741746,18.7913854,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x4716cd9e97549fed:0x827921cd78957940!2m2!1d18.8737857!2d50.2742037?entry=ttu&g_ep=EgoyMDI1MDkyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank">Udaj się do miejsca pod linkiem, gdy będziesz na miejscu wróć do pytania!</a>', typ: "input" },//ladowarka
+         { pytanie: "<b>PODAJ ODPOWIEDŹ DO PYTANIA NR 3<b/>", odpowiedz: "11", grafika:'<a href="https://www.google.com/maps/dir//Polska/@50.2742602,18.8705059,900m/data=!3m1!1e3!4m8!4m7!1m0!1m5!1m1!1s0x4716cd3077debf93:0xae96b5cf85f2b1cc!2m2!1d18.8718382!2d50.2751141?entry=ttu&g_ep=EgoyMDI1MTAwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank">Udaj się do następnego miejsca, gdy już tam będziesz wróć do pytania!</a>', typ: "input" },//paczkomat
+         { pytanie: "<b>PODAJ ODPOWIEDŹ DO PYTANIA NR 4<b/>", odpowiedz: "wrzesień", grafika:'<a href="https://www.google.com/maps/dir//50.2770507,18.8639628/@50.2770507,18.8639628,28813m/data=!3m1!1e3!4m2!4m1!3e0?entry=ttu&g_ep=EgoyMDI1MTAwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank">Udaj się do miejsca pod linkiem, gdy będziesz na miejscu wróć do pytania!!</a>', typ: "input" },//plac zabaw
+         { pytanie: "<b>PODAJ ODPOWIEDŹ DO PYTANIA NR 5<b/>", odpowiedz: "kasztany", grafika: '<a href="https://www.google.com/maps/dir//50.2750058,18.8674364/@50.2750058,18.8674364,28814m/data=!3m1!1e3!4m2!4m1!3e0?entry=ttu&g_ep=EgoyMDI1MTAwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank">Udaj się do następnego miejsca, gdy już tam będziesz wróć do pytania!</a>', typ: "input" },//plaza skrzynka
+        { pytanie: "Zaznacz wszystkie słowa związane z JESIENIĄ 🍂", odpowiedz: ["liść","dynia","herbata","żołądź","szalik"], grafika: "", typ: "multi" },
 
-          { pytanie: "Zaznacz wszystkie słowa związane z JESIENIĄ 🍂", odpowiedz: ["liść","dynia","herbata","żołądź","szalik"], grafika: "", typ: "multi" },
+       //https://www.google.com/maps/dir//50.274991,18.8674031/@50.2747523,18.8671751,202m/data=!3m1!1e3!4m5!4m4!1m0!1m1!4e1!3e0?entry=ttu&g_ep=EgoyMDI1MTAwMS4wIKXMDSoASAFQAw%3D%3D  
 
-         { pytanie: "Ostatnie pytanie", odpowiedz: "dynia", grafika: "nie wiem co tu można dać jeszcze", typ: "input" }
       ];
 
       let index = 0;
@@ -165,8 +167,8 @@
                document.getElementById("odp").value = "";
             }
          } else {
-            document.getElementById("pytanie").innerHTML = "🎉 Gratulacje, ukończyłeś grę!";
-            document.getElementById("grafika").innerHTML = "🏆";
+            document.getElementById("pytanie").innerHTML = '<b><a href="https://www.google.com/maps/dir//50.2750058,18.8674364/@50.2750058,18.8674364,28814m/data=!3m1!1e3!4m2!4m1!3e0?entry=ttu&g_ep=EgoyMDI1MTAwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank">Tutaj!</a></b>';
+            document.getElementById("grafika").innerHTML = "Już niedaleko, szukaj skarbu"
             document.getElementById("odp").style.display = "none";
          }
       }
@@ -180,5 +182,6 @@
 
 </body>
 </html>
+
 
 
